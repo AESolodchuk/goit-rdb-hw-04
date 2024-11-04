@@ -1,0 +1,18 @@
+use mydb;
+
+#show all orders_details
+select *
+from order_details od
+
+#order_details od N:1
+inner join orders o on od.order_id = o.id
+inner join products pr on od.product_id = pr.id
+
+#order o N:1
+inner join customers c on o.customer_id = c.id 
+inner join employees em on o.employee_id = em.employee_id
+inner join shippers sh on o.shipper_id = sh.id 
+
+#product pr N:1 
+inner join suppliers sup on pr.supplier_id = sup.id
+inner join categories cat on pr.category_id = cat.id

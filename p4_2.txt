@@ -1,0 +1,17 @@
+use mydb;
+
+-- RIGHT JOIN повертає всі рядки з правої таблиці (customers), 
+-- навіть якщо для них немає відповідного рядка в лівій таблиці (orders),
+-- так як в таблиці є записи customers які не булі задіяні в записах orders кількість більша за LEFT JOIN
+
+select count(cu.id) from orders o
+right join customers cu on o.customer_id = cu.id
+
+
+
+
+use mydb;
+
+
+select count(cu.id) from orders o
+left join customers cu on o.customer_id = cu.id
